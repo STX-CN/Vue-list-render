@@ -11,13 +11,14 @@
 <body>
     <div id="root">
         <ul>
-            <li v-for="item in items">{{item.message}}</li>
+            <li v-for="(item, index) of items">{{parentMessage}}-{{index}}-{{item.message}}</li>
         </ul>
     </div>
     <script>
         new Vue({
             el: "#root",
             data: {
+                parentMessage: 'Parent',
                 items: [{
                     message: 'Foo'
                 }, {

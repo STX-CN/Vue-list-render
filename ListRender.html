@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="GB2312">
+    <title>ListRender</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- <script src="../vue.js"></script> -->
+</head>
+
+<body>
+    <div id="root">
+        <ul>
+            <li v-for="item in items">{{item.message}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                items: [{
+                    message: 'Foo'
+                }, {
+                    message: 'Bar'
+                }]
+            }
+
+        })
+    </script>
+</body>
+
+</html>

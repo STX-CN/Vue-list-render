@@ -11,7 +11,7 @@
 <body>
     <div id="root">
         <ul>
-            <li v-for="value in object">{{value}}</li>
+            <li v-for="(value, key) in object">{{key}}:{{value}}</li>
         </ul>
     </div>
     <script>

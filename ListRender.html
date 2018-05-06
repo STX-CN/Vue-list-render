@@ -10,21 +10,34 @@
 
 <body>
     <div id="root">
+        <button @click="addOne">add</button>
+        <button @click="changeArrayLen">changeArrayLength</button>
+        <button @click="changeOne">changeOne</button>
+
         <ul>
-            <li v-for="(value, key, index) in object" :key="index">{{index}}. {{key}}:{{value}}</li>
+            <li v-for="(value, index) in items" :key="index">{{index}}. {{value}}</li>
         </ul>
+        <li>arrayLen: {{len}}</li>
     </div>
     <script>
-        new Vue({
+        var vm = new Vue({
             el: "#root",
             data: {
-                object: {
-                    firstName: 'john',
-                    lastName: 'tak',
-                    age: 30
+                items: ['a', 'b', 'c'],
+                len: 3
+            },
+            methods: {
+                addOne: function() {
+                    this.items.push('d');
+                },
+                changeArrayLen: function() {
+                    vm.items.splice(10);
+                    this.len = this.items.length;
+                },
+                changeOne: function() {
+                    this.items.splice(0, 1, 'aa');
                 }
             }
-
         })
     </script>
 </body>

@@ -12,20 +12,39 @@
     <div id="root">
         <button @click="addOneProp">add</button>
         <ul>
-            <li v-for="(value, key) in userProfile">{{key}}: {{value}}</li>
+            <li v-for="user in userProfile">{{user.name}} {{user.nation}} {{user.age}}</li>
         </ul>
     </div>
     <script>
         var vm = new Vue({
             el: '#root',
             data: {
-                userProfile: {
-                    name: 'Anika'
+                userProfile: [{
+                    name: 'lucy',
+                    nation: 'en',
+                    age: 15
+                }, {
+                    name: 'lisa',
+                    nation: 'en',
+                    age: 16
+                }, {
+                    name: 'jack',
+                    nation: 'en',
+                    age: 18
+                }],
+                object: {
+                    name: 'lucy',
+                    nation: 'en',
+                    age: 15
                 }
             },
             methods: {
                 addOneProp: function() {
-                    Vue.set(this.userProfile, 'age', 27);
+                    this.userProfile.push({
+                        name: 'bluse',
+                        nation: 'germen',
+                        age: 28
+                    });
                 }
             }
         })
